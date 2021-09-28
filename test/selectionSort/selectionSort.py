@@ -1,3 +1,11 @@
+import time
+
+def getTime(array,size):
+    empiezo=time.time()
+    selectionSort(array,size)
+    termino=time.time()
+    return (termino-empezo)
+
 def selectionSort(array, size):
     for step in range(size):
         min_idx = step

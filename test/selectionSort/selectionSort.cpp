@@ -55,7 +55,7 @@ int main(){
 
         //AGREGANDO A selectionSortCPP.txt
         auto time = timeSelectionSort(arr,intervalo);
-        dataSelectionSort << intervalo << "," << (time.count()/1000000) << endl;
+        dataSelectionSort << intervalo << "," << time.count() << endl;
 
         }
     }

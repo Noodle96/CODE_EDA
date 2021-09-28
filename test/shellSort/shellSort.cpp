@@ -34,13 +34,12 @@ auto timeShellSort(int arr[],int len){
 
 // Driver code
 int main() {
-    int TOTAL = 500000;
+    int TOTAL = 1000000;
     int arr[TOTAL+1];
-    cout << "hello" << endl;
 
     std::ofstream dataShellSort;
     dataShellSort.open("shellSortCPP.txt",std::ios::trunc);
-    for(int intervalo = 100000 ; intervalo < TOTAL+1; intervalo+=200000){
+    for(int intervalo = 100000 ; intervalo < TOTAL+1; intervalo+=400000){
         int contador = 0;
         string line;
         ifstream numeros ("../numeros.txt");
