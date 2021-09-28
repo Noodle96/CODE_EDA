@@ -2,47 +2,52 @@
 using namespace std;
 
 
-void merge(int arr[], int low, int high, int mid)
+int Merge(int A[],int p, int q,int r)
 {
-    int i, j, k, c[50];
-    i = low;
-    k = low;
-    j = mid + 1;
-    while (i <= mid && j <= high) {
-        if (arr[i] < arr[j]) {
-            c[k] = arr[i];
-            k++;
-            i++;
+    int n1,n2,i,j,k;
+    n1=q-p+1;
+    n2=r-q;
+    int L[n1],R[n2];
+    for(i=0;i<n1;i++)
+    {
+        L[i]=A[p+i];
+    }
+    for(j=0;j<n2;j++)
+    {
+        R[j]=A[q+j+1];
+    }
+    i=0,j=0;
+
+    for(k=p;i<n1&&j<n2;k++)
+    {
+        if(L[i]<R[j])
+        {
+            A[k]=L[i++];
         }
-        else  {
-            c[k] = arr[j];
-            k++;
-            j++;
+        else
+        {
+            A[k]=R[j++];
         }
     }
-    while (i <= mid) {
-        c[k] = arr[i];
-        k++;
-        i++;
+    while(i<n1)
+    {
+        A[k++]=L[i++];
     }
-    while (j <= high) {
-        c[k] = arr[j];
-        k++;
-        j++;
-    }
-    for (i = low; i < k; i++)  {
-        arr[i] = c[i];
+    while(j<n2)
+    {
+        A[k++]=R[j++];
     }
 }
 
-void merge_sort(int arr[], int low, int high)
+int MergeSort(int A[],int p,int r)
 {
-    int mid;
-    if (low < high){
-        mid=(low+high)/2;
-        merge_sort(arr,low,mid);
-        merge_sort(arr,mid+1,high);
-        merge(arr,low,high,mid);
+    int q;
+    if(p<r)
+    {
+        q=(p+r)/2;
+        MergeSort(A,p,q);
+        MergeSort(A,q+1,r);
+        Merge(A,p,q,r);
     }
 }
 
@@ -59,7 +64,7 @@ int main()
 {
     int A[6] = {0,6,4,2,3,8};
     print(A, 6);
-    merge_sort(A,0,5); // array, inicio, len-1
+    MergeSort(A,0,5); // array, inicio, len-1
     print(A,6);
 
     return 0;
