@@ -57,14 +57,14 @@ void print(int arr[], int n)
 int main () {
     string salidaTxt;
     //total = 3000
-    int n_total = 3000;
+    int n_total = 500000;
     int array[n_total];
 
     string tmp;
     ifstream f;
-    int ini = 100;
+    int ini = 100000;
     int fin = n_total;
-    int salto = 500;
+    int salto = 100000;
 
     for(int n = ini; n <= fin; n+=salto)
     {
